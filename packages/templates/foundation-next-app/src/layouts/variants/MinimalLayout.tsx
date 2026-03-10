@@ -31,7 +31,7 @@ interface MinimalLayoutProps { children: React.ReactNode; variant: LayoutVariant
 export default function MinimalLayout({ children, variant }: MinimalLayoutProps) {
     const theme     = useTheme();
     const dispatch  = useDispatch();
-    const navigate  = useNavigate();
+    const router     = useRouter();
     const themeMode = useSelector((s: RootState) => s.theme.mode);
     const direction = useSelector((s: RootState) => s.theme.direction);
     const hasRight  = variant === 'minimal-right';

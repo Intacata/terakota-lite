@@ -81,8 +81,8 @@ interface MenuItemRowProps {
 }
 
 function MenuItemRow({ item, depth = 0, mini = false }: MenuItemRowProps) {
-    const navigate   = useNavigate();
-    const location   = useLocation();
+    const router     = useRouter();
+    const pathname   = usePathname();
     const dispatch   = useDispatch();
     const theme      = useTheme();
     const openItems  = useSelector((s: RootState) => s.sidebar.openItems);

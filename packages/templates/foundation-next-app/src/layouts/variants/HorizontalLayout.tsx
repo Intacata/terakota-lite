@@ -43,8 +43,8 @@ interface HorizontalLayoutProps {
 export default function HorizontalLayout({ children, variant }: HorizontalLayoutProps) {
     const theme     = useTheme();
     const isMobile  = useMediaQuery(theme.breakpoints.down('md'));
-    const navigate  = useNavigate();
-    const location  = useLocation();
+    const router     = useRouter();
+    const pathname   = usePathname();
     const dispatch  = useDispatch();
     const themeMode = useSelector((s: RootState) => s.theme.mode);
     const direction = useSelector((s: RootState) => s.theme.direction);

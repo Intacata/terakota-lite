@@ -17,6 +17,21 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [1.3.2] — 2025-03
+
+### Fixed
+- **`useNavigate is not defined` crash in Next.js** — The v1.3.1 patch replaced only import lines. Call sites in `Sidebar/index.tsx`, `HorizontalLayout.tsx`, and `MinimalLayout.tsx` still called `useNavigate()` and `useLocation()` directly. All now correctly use `useRouter()` and `usePathname()` from `next/navigation`.
+- **Broken `'next/navigation'// router` import strings** — Leftover artefact from partial v1.3.1 patch. Cleaned up in all auth pages.
+- **Next.js 15 SWC binary crash on macOS 10.15 Catalina** — `@next/swc-darwin-x64` in Next.js 15 is a macOS 12+ binary (truncated mach-o error). Pinned Next.js to `^14.2.0` which ships Catalina-compatible binaries and falls back to WASM automatically.
+- **`next.config.ts`** — Added `transpilePackages` for all MUI packages (required for SSR + MUI).
+- **`tsconfig.json`** — Set `target: "ES2017"` to prevent Next.js auto-reconfiguration warning.
+
+### Changed
+- Next.js version: `^15.0.0` → `^14.2.0`
+- `@types/node`: `^22` → `^20`
+
+---
+
 ## [1.3.1] — 2025-Q1
 
 ### Added

@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { useNavigate } from 'next/navigation'// router;
+import { useRouter } from 'next/navigation';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';

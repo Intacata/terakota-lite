@@ -248,7 +248,7 @@ function generatePackageJson(config: FoundationConfig): object {
         buildScripts = { 'dev': 'vite --port 3009', 'build': 'vite build', 'preview': 'vite preview' };
     } else if (framework === 'next-app' || framework === 'next-pages') {
         buildToolDeps = {
-            'next': '^15.0.0',
+            'next': '^14.2.0',
         };
         // Tailwind is already handled in devDeps above for mui-tailwind styling.
         // Add Next.js specific devDeps.
@@ -260,7 +260,7 @@ function generatePackageJson(config: FoundationConfig): object {
             'lint': 'next lint',
         };
         // Next.js specific runtime deps (no @mui/material-nextjs needed — we use direct ThemeProvider)
-        deps['next'] = '^15.0.0';
+        deps['next'] = '^14.2.0';
     }
 
     // ── Force esbuild 0.18.x only for TanStack ────────────────────────────────

@@ -16,7 +16,7 @@
 *The open-source scaffold layer of [Terakota](https://terakota.live) — a product by [Intacata](https://intacata.com)*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.3.1-brightgreen.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.3.2-brightgreen.svg)](CHANGELOG.md)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-success.svg)](https://nodejs.org)
 [![Branch](https://img.shields.io/badge/branch-foundation-orange.svg)](https://github.com/intacata-org/terakota-lite/tree/foundation)
 [![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)](#stable-combinations)
@@ -93,7 +93,7 @@ npm run dev
 Go to [Releases](https://github.com/intacata-org/terakota-lite/releases) and download the latest `Terakota-Foundation-vX.X.X.zip`.
 
 ```bash
-unzip Terakota-Foundation-v1.3.1.zip -d Terakota-Foundation
+unzip Terakota-Foundation-v1.3.2.zip -d Terakota-Foundation
 cd Terakota-Foundation
 node create.js MyApp
 cd MyApp && npm run dev
@@ -351,7 +351,7 @@ Foundation uses [Semantic Versioning](https://semver.org): `MAJOR.MINOR.PATCH`
 
 Full history: [CHANGELOG.md](CHANGELOG.md)
 
-Current stable: **v1.3.1**
+Current stable: **v1.3.2**
 
 ---
 
