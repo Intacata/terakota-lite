@@ -1,0 +1,91 @@
+name: Foundation CLI Validation
+
+on:
+  push:
+    branches: [foundation]
+    paths:
+      - 'packages/create-terakota/src/**'
+      - 'packages/create-terakota/dist/**'
+      - 'packages/templates/**'
+  pull_request:
+    branches: [foundation]
+
+jobs:
+  validate-cli:
+    name: Validate CLI bundle
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check CLI bundle syntax
+        run: node --check packages/create-terakota/dist/index.cjs
+
+      - name: Verify CLI is executable
+        run: |
+          node packages/create-terakota/dist/index.cjs --version
+
+      - name: Check for literal \\n corruption in templates
+        run: |
+          FOUND=$(grep -rn "\\\\n" packages/templates/ --include="*.tsx" --include="*.ts" || true)
+          if [ -n "$FOUND" ]; then
+            echo "ERROR: Literal \\n found in template files:"
+            echo "$FOUND"
+            exit 1
+          fi
+          echo "✅ No literal \\n corruption found"
+
+      - name: Check for bare JSX comment blocks in templates
+        run: |
+          # Detect /*@if:xxx*/ directly inside JSX (between < and >)
+          # This is a heuristic — full parse would need a TS compiler
+          FOUND=$(grep -rn "^    /\*@if:" packages/templates/ --include="*.tsx" || true)
+          if [ -n "$FOUND" ]; then
+            echo "WARNING: Possible bare @if: comment in JSX position:"
+            echo "$FOUND"
+            echo "Review manually to confirm validity"
+          else
+            echo "✅ No suspicious bare @if: blocks found"
+          fi
+
+  validate-templates:
+    name: Check template file structure
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check required files exist in each full-dashboard template
+        run: |
+          TEMPLATES=(
+            "foundation-vite-tailwind"
+            "foundation-tanstack"
+            "foundation-next-app"
+            "foundation-cra"
+          )
+          REQUIRED_FILES=(
+            "src/store/index.ts"
+            "src/features/theme/themeSlice.ts"
+            "src/features/theme/themeUtils.ts"
+            "src/features/sidebar/sidebarSlice.ts"
+          )
+          ERRORS=0
+          for TEMPLATE in "${TEMPLATES[@]}"; do
+            for FILE in "${REQUIRED_FILES[@]}"; do
+              PATH_TO_CHECK="packages/templates/$TEMPLATE/$FILE"
+              if [ ! -f "$PATH_TO_CHECK" ]; then
+                echo "MISSING: $PATH_TO_CHECK"
+                ERRORS=$((ERRORS + 1))
+              fi
+            done
+          done
+          if [ $ERRORS -gt 0 ]; then
+            echo "$ERRORS required files are missing"
+            exit 1
+          fi
+          echo "✅ All required template files present"

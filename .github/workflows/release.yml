@@ -1,0 +1,48 @@
+name: Create Release Archive
+
+on:
+  push:
+    tags:
+      - 'foundation-v*'
+
+jobs:
+  release:
+    name: Package and release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#foundation-v}" >> $GITHUB_OUTPUT
+
+      - name: Create release archive
+        run: |
+          VERSION=${{ steps.version.outputs.VERSION }}
+          ARCHIVE="Terakota-Foundation-v${VERSION}.zip"
+          
+          # Package without node_modules, .git, or existing dist zips
+          zip -r "$ARCHIVE" . \
+            --exclude "*/node_modules/*" \
+            --exclude "*/.git/*" \
+            --exclude "*/dist/*" \
+            --exclude "*.zip" \
+            -q
+          
+          # Add the compiled CLI bundle back in
+          zip "$ARCHIVE" packages/create-terakota/dist/index.cjs -q
+          
+          echo "Created: $ARCHIVE"
+          ls -lh "$ARCHIVE"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "Terakota Foundation v${{ steps.version.outputs.VERSION }}"
+          body_path: CHANGELOG.md
+          files: "Terakota-Foundation-v${{ steps.version.outputs.VERSION }}.zip"
+          draft: false
+          prerelease: ${{ contains(github.ref_name, 'beta') || contains(github.ref_name, 'rc') }}

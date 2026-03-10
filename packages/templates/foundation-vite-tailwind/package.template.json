@@ -1,0 +1,14 @@
+{
+    "name": "TERAKOTA_FOUNDATION_NAME",
+    "version": "0.1.0",
+    "private": true,
+    "description": "A Terakota Foundation project",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc -b && vite build",
+        "preview": "vite preview",
+        "lint": "eslint . --ext ts,tsx",
+        "typecheck": "tsc --noEmit"
+    },
+    "engines": { "node": ">=18.0.0" }
+}

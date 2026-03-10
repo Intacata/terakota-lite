@@ -1,0 +1,16 @@
+@import '~nprogress/nprogress.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/700.css';
+@import '@fontsource/roboto/400.css';
+@import '@fontsource/roboto/700.css';
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/dm-sans/400.css';
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; -webkit-font-smoothing: antialiased; -webkit-app-region: no-drag; }
+#root { min-height: 100vh; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.4); border-radius: 3px; }
+#nprogress .bar { z-index: 2000; }

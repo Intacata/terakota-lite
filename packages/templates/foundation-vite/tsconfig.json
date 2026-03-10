@@ -1,0 +1,60 @@
+{
+    "compilerOptions": {
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "module": "ESNext",
+        "skipLibCheck": true,
+
+        /* Bundler mode */
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "isolatedModules": true,
+        "moduleDetection": "force",
+        "noEmit": true,
+        "jsx": "react-jsx",
+        "jsxImportSource": "@emotion/react",
+
+        /* Interop */
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true,
+
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "noFallthroughCasesInSwitch": true,
+        "forceConsistentCasingInFileNames": true,
+
+        /* Path aliases — mirrors Terakota original for seamless component porting */
+        "baseUrl": ".",
+        "paths": {
+            "~/*": ["src/*"],
+            "~/components/*": ["src/components/*"],
+            "~/pages/*": ["src/pages/*"],
+            "~/layouts/*": ["src/layouts/*"],
+            "~/features/*": ["src/features/*"],
+            "~/routes/*": ["src/routes/*"],
+            "~/store/*": ["src/store/*"],
+            "~/contexts/*": ["src/contexts/*"],
+            "~/utils/*": ["src/utils/*"],
+            "~/styles/*": ["src/styles/*"],
+            "~/i18n/*": ["src/i18n/*"],
+            "~/types/*": ["src/types/*"],
+            "~/assets/*": ["src/assets/*"],
+            "~/hooks/*": ["src/hooks/*"],
+            "~/services/*": ["src/services/*"]
+        }
+    },
+    "include": ["src", "src/**/*.ts", "src/**/*.tsx"],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "electron",
+        "src/**/*.test.*",
+        "src/**/__tests__/**",
+        "src/**/*.stories.*"
+    ],
+    "references": [{ "path": "./tsconfig.node.json" }]
+}
