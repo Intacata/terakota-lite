@@ -33,7 +33,7 @@ Git tags on the `foundation` branch follow the format: `foundation-v1.3.1`
 
 ### From GitHub releases (recommended)
 
-Every version is archived as a downloadable zip on the [Releases page](https://github.com/intacata-org/terakota-lite/releases).
+Every version is archived as a downloadable zip on the [Releases page](https://github.com/Intacata/terakota-lite/releases).
 
 ```bash
 # Download and extract the specific version you want
@@ -45,7 +45,7 @@ node create.js MyApp
 ### From a git tag
 
 ```bash
-git clone https://github.com/intacata-org/terakota-lite.git
+git clone https://github.com/Intacata/terakota-lite.git
 cd terakota-lite
 git checkout tags/foundation-v1.3.1
 

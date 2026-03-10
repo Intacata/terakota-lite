@@ -7,7 +7,7 @@ Thank you for your interest in contributing. Foundation is the open-source scaff
 ## Before You Start
 
 1. Read [ARCHITECTURE.md](ARCHITECTURE.md) fully — it explains how the scaffold system works, the capability matrix, template structure, and critical rules for editing template files.
-2. Check [open issues](https://github.com/intacata-org/terakota-lite/issues) to see if the problem or feature is already being discussed.
+2. Check [open issues](https://github.com/Intacata/terakota-lite/issues) to see if the problem or feature is already being discussed.
 3. For large changes, open an issue first to discuss the approach before writing code.
 
 ---
@@ -27,7 +27,7 @@ Thank you for your interest in contributing. Foundation is the open-source scaff
 ## Development Setup
 
 ```bash
-git clone https://github.com/intacata-org/terakota-lite.git
+git clone https://github.com/Intacata/terakota-lite.git
 cd terakota-lite
 git checkout foundation
 ```
@@ -144,4 +144,4 @@ If a template does not genuinely support an option, remove it from that framewor
 
 ## Questions
 
-Open a [Discussion](https://github.com/intacata-org/terakota-lite/discussions) for general questions. Use [Issues](https://github.com/intacata-org/terakota-lite/issues) for bugs and feature requests.
+Open a [Discussion](https://github.com/Intacata/terakota-lite/discussions) for general questions. Use [Issues](https://github.com/Intacata/terakota-lite/issues) for bugs and feature requests.

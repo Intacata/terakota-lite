@@ -112,7 +112,7 @@ The roadmap is informed by:
 2. Usage patterns from the Terakota commercial product
 3. Community feedback via [terakota.live](https://terakota.live)
 
-To request a feature or vote on existing ones, use the [Discussions](https://github.com/intacata-org/terakota-lite/discussions) tab.
+To request a feature or vote on existing ones, use the [Discussions](https://github.com/Intacata/terakota-lite/discussions) tab.
 
 ---
 
