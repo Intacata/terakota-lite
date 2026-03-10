@@ -25,7 +25,7 @@ You do **not** need to install any global package. Foundation runs directly from
 
 ```bash
 # Clone terakota-lite and enter the Foundation branch
-git clone https://github.com/Intacata/terakota-lite.git
+git clone https://github.com/intacata-org/terakota-lite.git
 cd terakota-lite
 git checkout foundation
 ```
@@ -34,7 +34,7 @@ That's it. No `npm install` needed at the root. The CLI is a self-contained comp
 
 ### Method 2 — Download a release archive
 
-Visit the [Releases page](https://github.com/Intacata/terakota-lite/releases) and download the latest `Terakota-Foundation-vX.X.X.zip`.
+Visit the [Releases page](https://github.com/intacata-org/terakota-lite/releases) and download the latest `Terakota-Foundation-vX.X.X.zip`.
 
 ```bash
 unzip Terakota-Foundation-v1.3.1.zip -d Terakota-Foundation
@@ -193,7 +193,7 @@ All Foundation releases are archived as GitHub Release assets. To install a spec
 
 ```bash
 # Using git tags (after tagging is set up)
-git clone https://github.com/Intacata/terakota-lite.git
+git clone https://github.com/intacata-org/terakota-lite.git
 cd terakota-lite
 git checkout foundation
 git checkout tags/foundation-v1.3.1
@@ -201,7 +201,7 @@ git checkout tags/foundation-v1.3.1
 node create.js MyApp
 ```
 
-Or download the release archive directly from the [Releases page](https://github.com/Intacata/terakota-lite/releases).
+Or download the release archive directly from the [Releases page](https://github.com/intacata-org/terakota-lite/releases).
 
 ---
 

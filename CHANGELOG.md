@@ -17,6 +17,14 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [1.3.3] — 2025-03
+
+### Fixed
+- **`.gitignore` blocking CLI bundle from git** — The broad `dist/` ignore rule prevented `packages/create-terakota/dist/index.cjs` from being tracked, causing GitHub Actions to fail with `Cannot find module`. Replaced with specific patterns (`packages/templates/*/dist/`) that protect generated build output while keeping the CLI bundle committed.
+- **GitHub Actions validate workflow** — Added explicit check for bundle existence with clear error message; added Next.js-specific check that no `react-router-dom` hooks remain.
+
+---
+
 ## [1.3.2] — 2025-03
 
 ### Fixed

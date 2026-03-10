@@ -102,7 +102,7 @@ These features are framework-specific and only shown where supported:
 
 ## How to Report a Broken Combination
 
-If a combination you selected doesn't work, please [open an issue](https://github.com/Intacata/terakota-lite/issues/new?template=bug_report.md) with:
+If a combination you selected doesn't work, please [open an issue](https://github.com/intacata-org/terakota-lite/issues/new?template=bug_report.md) with:
 
 1. Exact CLI selections (framework, platform, styling, layout, features)
 2. Node.js and npm versions

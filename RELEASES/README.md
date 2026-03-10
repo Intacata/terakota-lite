@@ -16,7 +16,7 @@ cd MyApp && npm install && npm run dev
 
 Or install directly from a git tag:
 ```bash
-git clone https://github.com/Intacata/terakota-lite.git
+git clone https://github.com/intacata-org/terakota-lite.git
 cd terakota-lite
 git checkout foundation
 git checkout tags/foundation-v1.3.2
@@ -29,10 +29,11 @@ node create.js MyApp
 
 | Version | Date | Status | Summary | Download |
 |---|---|---|---|---|
-| [v1.3.2](v1.3.2/RELEASE_NOTES.md) | 2025-03 | ✅ Latest | Next.js router fix, Next.js 14 for Catalina | [GitHub Release](https://github.com/Intacata/terakota-lite/releases/tag/foundation-v1.3.2) |
-| [v1.3.1](v1.3.1/RELEASE_NOTES.md) | 2025-03 | Superseded | TanStack blank page fix, Next.js full dashboard port | [GitHub Release](https://github.com/Intacata/terakota-lite/releases/tag/foundation-v1.3.1) |
-| [v1.3.0](v1.3.0/RELEASE_NOTES.md) | 2025-03 | Superseded | Capability matrix, honest CLI options | [GitHub Release](https://github.com/Intacata/terakota-lite/releases/tag/foundation-v1.3.0) |
-| [v1.2.4](v1.2.4/RELEASE_NOTES.md) | 2025-Q1 | Archived | First confirmed stable Vite release | [GitHub Release](https://github.com/Intacata/terakota-lite/releases/tag/foundation-v1.2.4) |
+| [v1.3.3](v1.3.3/RELEASE_NOTES.md) | 2025-03 | ✅ Latest | Gitignore fix — CLI bundle now tracked by git | [GitHub Release](https://github.com/Intacata/terakota-lite/releases/tag/foundation-v1.3.3) |
+| [v1.3.2](v1.3.2/RELEASE_NOTES.md) | 2025-03 | ✅ Latest | Next.js router fix, Next.js 14 for Catalina | [GitHub Release](https://github.com/intacata-org/terakota-lite/releases/tag/foundation-v1.3.2) |
+| [v1.3.1](v1.3.1/RELEASE_NOTES.md) | 2025-03 | Superseded | TanStack blank page fix, Next.js full dashboard port | [GitHub Release](https://github.com/intacata-org/terakota-lite/releases/tag/foundation-v1.3.1) |
+| [v1.3.0](v1.3.0/RELEASE_NOTES.md) | 2025-03 | Superseded | Capability matrix, honest CLI options | [GitHub Release](https://github.com/intacata-org/terakota-lite/releases/tag/foundation-v1.3.0) |
+| [v1.2.4](v1.2.4/RELEASE_NOTES.md) | 2025-Q1 | Archived | First confirmed stable Vite release | [GitHub Release](https://github.com/intacata-org/terakota-lite/releases/tag/foundation-v1.2.4) |
 
 ---
 

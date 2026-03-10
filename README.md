@@ -16,9 +16,9 @@
 *The open-source scaffold layer of [Terakota](https://terakota.live) — a product by [Intacata](https://intacata.com)*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.3.2-brightgreen.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.3.3-brightgreen.svg)](CHANGELOG.md)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-success.svg)](https://nodejs.org)
-[![Branch](https://img.shields.io/badge/branch-foundation-orange.svg)](https://github.com/Intacata/terakota-lite/tree/foundation)
+[![Branch](https://img.shields.io/badge/branch-foundation-orange.svg)](https://github.com/intacata-org/terakota-lite/tree/foundation)
 [![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)](#stable-combinations)
 
 </div>
@@ -74,7 +74,7 @@ Foundation is **free forever**. No account required. No telemetry.
 
 ```bash
 # 1. Clone the terakota-lite repository
-git clone https://github.com/Intacata/terakota-lite.git
+git clone https://github.com/intacata-org/terakota-lite.git
 
 # 2. Enter the repo and switch to the Foundation branch
 cd terakota-lite
@@ -90,7 +90,7 @@ npm run dev
 
 ### Option B — Download a release archive
 
-Go to [Releases](https://github.com/Intacata/terakota-lite/releases) and download the latest `Terakota-Foundation-vX.X.X.zip`.
+Go to [Releases](https://github.com/intacata-org/terakota-lite/releases) and download the latest `Terakota-Foundation-vX.X.X.zip`.
 
 ```bash
 unzip Terakota-Foundation-v1.3.2.zip -d Terakota-Foundation

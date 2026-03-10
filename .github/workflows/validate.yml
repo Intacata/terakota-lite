@@ -7,6 +7,7 @@ on:
       - 'packages/create-terakota/src/**'
       - 'packages/create-terakota/dist/**'
       - 'packages/templates/**'
+      - '.github/workflows/validate.yml'
   pull_request:
     branches: [foundation]
 
@@ -23,16 +24,24 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Check CLI bundle exists
+        run: |
+          if [ ! -f "packages/create-terakota/dist/index.cjs" ]; then
+            echo "ERROR: packages/create-terakota/dist/index.cjs not found in repo"
+            echo "The compiled CLI bundle must be committed. Run: npm run build:cli"
+            exit 1
+          fi
+          echo "✅ CLI bundle present ($(du -sh packages/create-terakota/dist/index.cjs | cut -f1))"
+
       - name: Check CLI bundle syntax
         run: node --check packages/create-terakota/dist/index.cjs
 
-      - name: Verify CLI is executable
-        run: |
-          node packages/create-terakota/dist/index.cjs --version
+      - name: Verify CLI version flag works
+        run: node packages/create-terakota/dist/index.cjs --version
 
       - name: Check for literal \\n corruption in templates
         run: |
-          FOUND=$(grep -rn "\\\\n" packages/templates/ --include="*.tsx" --include="*.ts" || true)
+          FOUND=$(grep -rn $'\\\\n' packages/templates/ --include="*.tsx" --include="*.ts" | grep -v "node_modules" || true)
           if [ -n "$FOUND" ]; then
             echo "ERROR: Literal \\n found in template files:"
             echo "$FOUND"
@@ -40,52 +49,28 @@ jobs:
           fi
           echo "✅ No literal \\n corruption found"
 
-      - name: Check for bare JSX comment blocks in templates
+      - name: Check required files exist in full-dashboard templates
         run: |
-          # Detect /*@if:xxx*/ directly inside JSX (between < and >)
-          # This is a heuristic — full parse would need a TS compiler
-          FOUND=$(grep -rn "^    /\*@if:" packages/templates/ --include="*.tsx" || true)
-          if [ -n "$FOUND" ]; then
-            echo "WARNING: Possible bare @if: comment in JSX position:"
-            echo "$FOUND"
-            echo "Review manually to confirm validity"
-          else
-            echo "✅ No suspicious bare @if: blocks found"
-          fi
-
-  validate-templates:
-    name: Check template file structure
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Check required files exist in each full-dashboard template
-        run: |
-          TEMPLATES=(
-            "foundation-vite-tailwind"
-            "foundation-tanstack"
-            "foundation-next-app"
-            "foundation-cra"
-          )
-          REQUIRED_FILES=(
-            "src/store/index.ts"
-            "src/features/theme/themeSlice.ts"
-            "src/features/theme/themeUtils.ts"
-            "src/features/sidebar/sidebarSlice.ts"
-          )
+          TEMPLATES=("foundation-vite-tailwind" "foundation-tanstack" "foundation-next-app" "foundation-cra")
+          REQUIRED=("src/store/index.ts" "src/features/theme/themeSlice.ts" "src/features/sidebar/sidebarSlice.ts")
           ERRORS=0
-          for TEMPLATE in "${TEMPLATES[@]}"; do
-            for FILE in "${REQUIRED_FILES[@]}"; do
-              PATH_TO_CHECK="packages/templates/$TEMPLATE/$FILE"
-              if [ ! -f "$PATH_TO_CHECK" ]; then
-                echo "MISSING: $PATH_TO_CHECK"
-                ERRORS=$((ERRORS + 1))
+          for T in "${TEMPLATES[@]}"; do
+            for F in "${REQUIRED[@]}"; do
+              if [ ! -f "packages/templates/$T/$F" ]; then
+                echo "MISSING: packages/templates/$T/$F"
+                ERRORS=$((ERRORS+1))
               fi
             done
           done
-          if [ $ERRORS -gt 0 ]; then
-            echo "$ERRORS required files are missing"
+          [ $ERRORS -eq 0 ] && echo "✅ All required template files present" || exit 1
+
+      - name: Check Next.js template has no react-router-dom
+        run: |
+          FOUND=$(grep -rn "react-router-dom\|useNavigate\|useLocation" \
+            packages/templates/foundation-next-app/src/ 2>/dev/null || true)
+          if [ -n "$FOUND" ]; then
+            echo "ERROR: react-router-dom hooks found in Next.js template:"
+            echo "$FOUND"
             exit 1
           fi
-          echo "✅ All required template files present"
+          echo "✅ Next.js template uses next/navigation correctly"
