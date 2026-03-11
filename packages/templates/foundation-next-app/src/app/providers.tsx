@@ -1,6 +1,9 @@
 'use client';
 
 import { type ReactNode } from 'react';
+/*@if:i18n*/
+import '~/i18n/i18n'; // initialise i18n on the client
+/*@endif:i18n*/
 import { Provider, useSelector } from 'react-redux';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';

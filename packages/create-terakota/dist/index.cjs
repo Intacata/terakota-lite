@@ -20355,12 +20355,14 @@ function generatePackageJson(config) {
     };
     devDeps["@types/node"] = "^22";
     buildScripts = {
+      "postinstall": "node scripts/postinstall.js",
       "dev": "next dev -p 3009",
       "build": "next build",
       "start": "next start -p 3009",
       "lint": "next lint"
     };
     deps["next"] = "^14.2.0";
+    devDeps["@next/swc-wasm-nodejs"] = "^14.2.0";
   }
   const overrides = framework === "tanstack" ? { esbuild: "0.18.20" } : void 0;
   return {

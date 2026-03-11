@@ -1,6 +1,6 @@
 {
     "name": "terakota-foundation",
-    "version": "1.3.3",
+    "version": "1.3.7",
     "private": true,
     "description": "Terakota Foundation \u2014 Multi-framework React dashboard scaffold CLI. Free and open-source.",
     "keywords": [

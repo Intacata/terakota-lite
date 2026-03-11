@@ -16,7 +16,7 @@
 *The open-source scaffold layer of [Terakota](https://terakota.live) — a product by [Intacata](https://intacata.com)*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.3.3-brightgreen.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.3.7-brightgreen.svg)](CHANGELOG.md)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-success.svg)](https://nodejs.org)
 [![Branch](https://img.shields.io/badge/branch-foundation-orange.svg)](https://github.com/intacata-org/terakota-lite/tree/foundation)
 [![Status](https://img.shields.io/badge/status-stable-brightgreen.svg)](#stable-combinations)

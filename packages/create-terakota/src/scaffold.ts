@@ -254,6 +254,7 @@ function generatePackageJson(config: FoundationConfig): object {
         // Add Next.js specific devDeps.
         devDeps['@types/node'] = '^22';
         buildScripts = {
+            'postinstall': 'node scripts/postinstall.js',
             'dev': 'next dev -p 3009',
             'build': 'next build',
             'start': 'next start -p 3009',
@@ -261,6 +262,11 @@ function generatePackageJson(config: FoundationConfig): object {
         };
         // Next.js specific runtime deps (no @mui/material-nextjs needed — we use direct ThemeProvider)
         deps['next'] = '^14.2.0';
+        // WASM SWC fallback — required on macOS 10.15 Catalina where the native
+        // @next/swc-darwin-x64 binary truncates during download and crashes on dlopen.
+        // Next.js automatically uses this when the native binary is absent (ENOENT = catchable,
+        // unlike the dlopen crash from a corrupted binary). See scripts/postinstall.js.
+        devDeps['@next/swc-wasm-nodejs'] = '^14.2.0';
     }
 
     // ── Force esbuild 0.18.x only for TanStack ────────────────────────────────

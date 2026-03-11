@@ -29,6 +29,10 @@ node create.js MyApp
 
 | Version | Date | Status | Summary | Download |
 |---|---|---|---|---|
+| [v1.3.7](v1.3.7/RELEASE_NOTES.md) | 2025-03 | ✅ Latest | Root cause SWC fix: postinstall deletes truncated binary, WASM fallback | [GitHub Release](https://github.com/Intacata/terakota-lite/releases/tag/foundation-v1.3.7) |
+| [v1.3.6](v1.3.6/RELEASE_NOTES.md) | 2025-03 | ✅ Latest | swcMinify: false — completes Catalina SWC fix | [GitHub Release](https://github.com/Intacata/terakota-lite/releases/tag/foundation-v1.3.6) |
+| [v1.3.5](v1.3.5/RELEASE_NOTES.md) | 2025-03 | ✅ Latest | Babel fallback — fixes SWC crash on macOS Catalina | [GitHub Release](https://github.com/Intacata/terakota-lite/releases/tag/foundation-v1.3.5) |
+| [v1.3.4](v1.3.4/RELEASE_NOTES.md) | 2025-03 | ✅ Latest | next.config.js fix, i18n init, use client fixes | [GitHub Release](https://github.com/Intacata/terakota-lite/releases/tag/foundation-v1.3.4) |
 | [v1.3.3](v1.3.3/RELEASE_NOTES.md) | 2025-03 | ✅ Latest | Gitignore fix — CLI bundle now tracked by git | [GitHub Release](https://github.com/Intacata/terakota-lite/releases/tag/foundation-v1.3.3) |
 | [v1.3.2](v1.3.2/RELEASE_NOTES.md) | 2025-03 | ✅ Latest | Next.js router fix, Next.js 14 for Catalina | [GitHub Release](https://github.com/intacata-org/terakota-lite/releases/tag/foundation-v1.3.2) |
 | [v1.3.1](v1.3.1/RELEASE_NOTES.md) | 2025-03 | Superseded | TanStack blank page fix, Next.js full dashboard port | [GitHub Release](https://github.com/intacata-org/terakota-lite/releases/tag/foundation-v1.3.1) |

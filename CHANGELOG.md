@@ -17,6 +17,41 @@ Versioning follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [1.3.7] — 2025-03
+
+### Fixed
+- **Next.js SWC `truncated mach-o` crash — root cause addressed** — The native `@next/swc-darwin-x64` binary is 100MB+. On macOS 10.15 Catalina, npm's download of this file consistently truncates (producing a ~3–110MB corrupted file). When Next.js calls `dlopen()` on the truncated file, macOS throws an OS-level crash — this is not a catchable JS error. Previous approaches (`babel.config.js`, `swcMinify: false`) only disabled two of three SWC usage points; the binary load itself still crashed the process.
+
+  **Three-layer fix:**
+  1. `scripts/postinstall.js` — deletes `node_modules/@next/swc-darwin-x64` after npm install. This converts the hard `dlopen` crash into a catchable `ENOENT`, which Next.js handles gracefully.
+  2. `@next/swc-wasm-nodejs` added as devDependency — the official WebAssembly build of SWC. Next.js automatically uses this when the native binary is absent. It is ~15MB and downloads reliably on all platforms.
+  3. `babel.config.js` + `swcMinify: false` — kept from v1.3.5/v1.3.6 to further reduce SWC dependency surface.
+
+---
+
+## [1.3.6] — 2025-03
+
+### Fixed
+- **Next.js SWC crash on Catalina — second load point** — `babel.config.js` (v1.3.5) correctly disables SWC for transpilation but Next.js 14 also loads SWC separately for minification (`swcMinify: true` is the default). Added `swcMinify: false` to `next.config.js` to use Terser instead. Both SWC load points are now blocked on Catalina.
+
+---
+
+## [1.3.5] — 2025-03
+
+### Fixed
+- **Next.js SWC `truncated mach-o` crash on macOS 10.15 Catalina** — The SWC native compiler binary shipped with every version of Next.js 13+ is built for macOS 11+. Added `babel.config.js` with `next/babel` preset to the Next.js template. Next.js automatically uses Babel when it detects this file, bypassing SWC entirely. No extra packages required — `next/babel` is included in Next.js itself. This is the permanent Catalina fix for Next.js.
+
+---
+
+## [1.3.4] — 2025-03
+
+### Fixed
+- ** not supported in Next.js 14** — Next.js 14 only accepts `next.config.js` or `next.config.mjs`. Renamed template config file and updated scaffold.
+- **i18n not initialised in Next.js** — Was imported in Vite's `main.tsx` but that pattern doesn't exist in Next.js App Router. Added import to `providers.tsx` (a `'use client'` file), wrapped in `@if:i18n` conditional block.
+- **Missing `'use client'`** on `Landing.tsx` and `faviconUtils.ts`.
+
+---
+
 ## [1.3.3] — 2025-03
 
 ### Fixed
