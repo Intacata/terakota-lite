@@ -1,0 +1,48 @@
+{
+    "name": "terakota-foundation",
+    "version": "1.3.8",
+    "private": true,
+    "description": "Terakota Foundation \u2014 Multi-framework React dashboard scaffold CLI. Free and open-source.",
+    "keywords": [
+        "react",
+        "dashboard",
+        "scaffold",
+        "cli",
+        "vite",
+        "nextjs",
+        "tanstack",
+        "mui",
+        "tailwind",
+        "shadcn",
+        "typescript",
+        "redux",
+        "pwa",
+        "electron",
+        "terakota",
+        "intacata"
+    ],
+    "homepage": "https://github.com/intacata-org/terakota-lite/tree/foundation",
+    "bugs": {
+        "url": "https://github.com/intacata-org/terakota-lite/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/intacata-org/terakota-lite.git"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Intacata",
+        "url": "https://intacata.com"
+    },
+    "type": "module",
+    "scripts": {
+        "create": "node create.js",
+        "build:cli": "cd packages/create-terakota && npx esbuild src/index.ts --bundle --platform=node --target=node18 --format=cjs --outfile=dist/index.cjs",
+        "dev:vite": "cd packages/templates/foundation-vite-tailwind && npm install && npm run dev",
+        "dev:tanstack": "cd packages/templates/foundation-tanstack && npm install && npm run dev",
+        "dev:next": "cd packages/templates/foundation-next-app && npm install && npm run dev"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}

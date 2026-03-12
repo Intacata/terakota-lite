@@ -1,0 +1,64 @@
+# Terakota Foundation
+
+> Terakota Foundation is a free, open-source CLI scaffold for building full-featured React dashboard applications. It is the community layer of Terakota, a product by Intacata.
+
+Terakota Foundation generates complete, production-ready dashboard applications from an interactive CLI. Users select a framework, styling approach, layout variant, and optional features. The CLI assembles a working codebase with routing, Redux state management, MUI theming, authentication pages, internationalisation, and an 8-variant runtime-switchable layout system.
+
+## Key facts
+
+- **Repository**: https://github.com/intacata-org/terakota-lite/tree/foundation
+- **Branch**: `foundation` (within the `terakota-lite` monorepo)
+- **Organisation**: Intacata (https://intacata.com)
+- **Product**: Terakota (https://terakota.live)
+- **License**: MIT
+- **Current stable version**: 1.3.1
+- **Node.js requirement**: >= 18.0.0
+- **Usage**: `node create.js MyApp` (no global install required)
+
+## Supported frameworks
+
+- Vite (SPA, PWA, Electron) — stable
+- TanStack Router (type-safe SPA) — beta
+- Next.js App Router (SSR, RSC) — beta
+- Next.js Pages Router (classic Next.js) — beta
+- Create React App / CRA (webpack, legacy) — beta
+- Astro (basic starter) — starter only
+
+## What is generated
+
+A full dashboard application with:
+- 8-variant layout system (sidebar, horizontal, tabbed, minimal — all runtime-switchable)
+- Redux Toolkit state management
+- MUI component library (v7 for Vite/Next/CRA, v6 for TanStack)
+- Optional Tailwind CSS or Shadcn/ui
+- Dark / Light / System theme with localStorage persistence
+- RTL layout direction support
+- Authentication pages (Login, Register, Lock Screen)
+- i18n with English and Arabic translations
+- Widget / dashboard canvas system
+- Toast notification system
+- PWA / Electron support (framework-dependent)
+- TypeScript by default (JavaScript also available)
+
+## Technology stack
+
+React 18/19, Redux Toolkit, MUI (Material UI), Tailwind CSS, Shadcn/ui, Framer Motion, i18next, react-i18next, Vite 4, Next.js 15, TanStack Router 1.50, Emotion, Styled Components, Iconify
+
+## Compatibility
+
+Actively tested on macOS 10.15 Catalina and newer. Works on Windows 10/11 and Ubuntu 20.04+.
+
+## Documentation
+
+- Getting started: docs/getting-started.md
+- Framework support: docs/capability-matrix.md
+- Tested combinations: docs/stable-combinations.md
+- Architecture: docs/architecture.md
+- Roadmap: docs/roadmap.md
+- Changelog: CHANGELOG.md
+- Contributing: CONTRIBUTING.md
+
+## Optional docs
+
+- ARCHITECTURE.md — deep technical reference for contributors and AI agents
+- SECURITY.md — vulnerability reporting policy
